@@ -3,7 +3,7 @@
 //
 // Props du composant:
 // label    = texte du bouton.
-// onClick  = maFonction().
+// children = Représente les composants enfant de l'accordéon
 // view     = choisir "open" || "close".
 // collapse = choisir "" || "noCollapse", empêche de déplier / replier l'accordéon
 // idChild  = Id de la balise enfant de l'accordéon

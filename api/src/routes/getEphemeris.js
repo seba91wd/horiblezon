@@ -25,7 +25,7 @@ module.exports = (app) => {
                 try {
                     const fileContent = await fs.readFile(filePath, 'utf-8');
                     const data = JSON.parse(fileContent);
-                    const name = data.reformattedData && data.reformattedData.name ? ` (${data.reformattedData.name})` : "";
+                    const name = data.reformattedData && data.reformattedData.name ? ` (${data.reformattedData.name.value})` : "";
                     const message = `Données du fichier ${fileId}.json,${name} récupérées avec succès.`;
                     return res.status(200).json({ message, data });
                 } 

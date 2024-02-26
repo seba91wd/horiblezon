@@ -129,7 +129,6 @@ const InfoSticker = (props) => {
                 onMouseLeave={stickerClose}
             >i
             </span>
-            {/* tooltip itself */}
             {stickerOpen &&
                 <div className="info-content">
                     {getMessage()}

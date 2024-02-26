@@ -53,52 +53,44 @@ export async function loginReq(login, setAuthenticated, displayMessage) {
     }
 }
 
-export function fetchEphemerisList() {
-    return fetch('/api/get-ephemeris/')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('La requête a échoué.');
+export async function fetchEphemerisList() {
+    try {
+        const response = await fetch('/api/get-ephemeris/');
+        if (!response.ok) {
+            throw new Error('La requête a échoué.');
+        }
+        const data = await response.json();
+        const organizedData = data.filesList.reduce((acc, file) => {
+            const type = file.type || 'undefined';
+            if (!acc[type]) {
+                acc[type] = [];
             }
-            return response.json();
-        })
-        .then(data => {
-            const organizedData = data.filesList.reduce((acc, file) => {
-                const type = file.type || 'undefined';
-                if (!acc[type]) {
-                    acc[type] = [];
-                }
-                acc[type].push(file);
-                return acc;
-            }, {});
-
-            return organizedData;
-        })
-        .catch(error => {
-            console.error('Erreur lors de la requête:', error);
-            throw error;
-        });
+            acc[type].push(file);
+            return acc;
+        }, {});
+        return organizedData;
+    } catch (error) {
+        console.error('Erreur lors de la requête:', error);
+        throw error;
+    }
 };
 
-export function fetchEphemerisData(selectedFile) {
-    return fetch(`/api/get-ephemeris/${selectedFile}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('La requête a échoué.');
-            }
-            return response.json();
-        })
-        .then(file => {
-            const result = {
-                unformattedData: file.data.result,
-                reformattedData: file.data.reformattedData
-            };
-
-            return result;
-        })
-        .catch(error => {
-            console.error('Erreur lors de la requête:', error);
-            throw error;
-        });
+export async function fetchEphemerisData(selectedFile) {
+    try {
+        const response = await fetch(`/api/get-ephemeris/${selectedFile}`);
+        if (!response.ok) {
+            throw new Error('La requête a échoué.');
+        }
+        const file = await response.json();
+        const result_1 = {
+            unformattedData: file.data.result,
+            reformattedData: file.data.reformattedData
+        };
+        return result_1;
+    } catch (error) {
+        console.error('Erreur lors de la requête:', error);
+        throw error;
+    }
 }
 
 export function extractDataFromEphemeris(rawdData) {
@@ -750,7 +742,7 @@ export function renderNavBodiesList(ephemerisList, liClick) {
     ));
 }
 
-export function saveExtractData(extractedData, fetchData, authenticated, displayMessage) {
+export async function saveExtractData(extractedData, fetchData, authenticated, displayMessage) {
     console.log(extractedData);
     if (extractedData.name.value === 'null') {
         const message = `Le corps doit être nommé pour sauvegarder les données.`;
@@ -776,25 +768,25 @@ export function saveExtractData(extractedData, fetchData, authenticated, display
         return;
     }
 
-    return fetch('/api/post-extractData/', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${authenticated.authToken}`,
-        },
-        body: JSON.stringify(extractedData),
-    })
-        .then(response => response.json())
-        .then(({ message }) => {
-            displayMessage(message);
-            fetchData();
-        })
-        .catch(error => {
-            console.error(error);
+    try {
+        const response = await fetch('/api/post-extractData/', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authenticated.authToken}`,
+            },
+            body: JSON.stringify(extractedData),
         });
+    
+        const { message } = await response.json();
+        displayMessage(message);
+        fetchData();
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-export function addBody(fetchData, cancelAddBodyClick, authenticated, displayMessage) {
+export async function addBody(fetchData, cancelAddBodyClick, authenticated, displayMessage) {
     const id = parseInt(document.getElementById("add-id-value").value);
     const coordinateCenter = document.getElementById("add-coordinateCenter-value").value;
     const date = document.getElementById("add-date-value").value;
@@ -807,23 +799,23 @@ export function addBody(fetchData, cancelAddBodyClick, authenticated, displayMes
 
     const data = { id, coordinateCenter, date }
 
-    return fetch('/api/post-addBody/', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${authenticated.authToken}`,
-        },
-        body: JSON.stringify(data),
-    })
-        .then(response => response.json())
-        .then(({ message }) => {
-            displayMessage(message);
-            cancelAddBodyClick();
-            fetchData();
-        })
-        .catch(error => {
-            console.error(error);
+    try {
+        const response = await fetch('/api/post-addBody/', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authenticated.authToken}`,
+            },
+            body: JSON.stringify(data),
         });
+    
+        const { message } = await response.json();
+        displayMessage(message);
+        cancelAddBodyClick();
+        fetchData();
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 export function addData(setFormattedData, setFormattedDataHtml, addDataClick, formattedData, cancelAddDataClick, displayMessage) {
@@ -902,7 +894,6 @@ export async function exportData(displayMessage, bodyCheckboxes) {
         if (response.ok) {
             const { message, result } = await response.json();
             const jsonString = JSON.stringify(result, null, 2);
-            // console.log(result);
 
             // Créer un lien temporaire
             const url = window.URL.createObjectURL(new Blob([jsonString]));
@@ -1056,4 +1047,3 @@ export function renderExportBodiesList(ephemerisList, typeCheckboxes, setTypeChe
         ) : null
     ));
 }
-

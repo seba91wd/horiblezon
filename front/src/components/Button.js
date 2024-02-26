@@ -2,8 +2,9 @@
 // Button.js
 //
 // Props du composant:
-// label    = texte du bouton
-// onClick  = fonction
+// label     = texte du bouton
+// className = classe(s) de style
+// onClick   = fonction
 //
 // exemple utilisation:
 /*

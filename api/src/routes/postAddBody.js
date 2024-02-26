@@ -20,13 +20,27 @@ module.exports = (app) => {
         const date = req.body.date || '2000-01-01';
 
         if (id === '' ) {
-            return res.status(400).json({ error: 'L\'ID du corps ne doit pas être null.' });
+            return res.status(400).json({ message: 'L\'ID du corps ne doit pas être null.' });
+        }
+        
+        // Contrôle des doublons
+        try {
+            const getList = await axios.get('http://localhost:3100/api/get-ephemeris/');
+            const data = getList.data.filesList;
+            const duplicate = data.find(file => file.id == id || file == id);
+            if (duplicate) {
+                console.log('Un élément avec le même ID existe déjà.');
+                return res.status(400).json({ message: 'Un élément avec le même ID existe déjà.' });
+            }
+        } catch (error) {
+            return res.status(500).json({ message: 'Erreur lors de la récupération des données.' });
         }
 
+        // Requête vers le JPL
         try {
             const data = await reqToJpl(id, coordinateCenter, date);
             if (data.error) {
-                return res.status(502).json({ error: 'Le service du JPL "Horizon" est actuellement indisponible. Veuillez réessayer plus tard.' });
+                return res.status(502).json({ message: 'Le service du JPL "Horizon" est actuellement indisponible. Veuillez réessayer plus tard.' });
             }
             writeRawFile(id, data);
 
@@ -35,7 +49,7 @@ module.exports = (app) => {
         } 
         catch (error) {
             console.error('Erreur lors de la sauvegarde des données :', error);
-            return res.status(500).json({ error: 'Erreur lors de la sauvegarde des données.' });
+            return res.status(500).json({ message: 'Erreur lors de la sauvegarde des données.' });
         }
     });
 };

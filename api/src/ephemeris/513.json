@@ -75,9 +75,6 @@
       "meanRadius": {
         "value": 5,
         "unit": "km"
-      },
-      "density": {
-        "value": "1"
       }
     },
     "type": {

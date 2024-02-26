@@ -323,7 +323,6 @@ const Horiblezon = () => {
                 </div>
             )}
 
-
             <div className="position-fixed bottom-0 w-100 text-center">
                 <p className="message hidden">
                     {message}

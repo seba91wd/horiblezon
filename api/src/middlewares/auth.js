@@ -1,14 +1,11 @@
 // ========================================================================================================== //
 // middlewares/auth.js
 //
-// Parametres du middleware:
-//
-//
 // Note: 1 - Ce middleware vérifie l'authenticité du token contenue dans le cookie délivré à un utilisateur identifié.
 // 
 // exemple d'utilisation:
 /* 
-
+    app.post('/url-path/', auth, (req, res) => {...}
 */
 // ========================================================================================================== //
 

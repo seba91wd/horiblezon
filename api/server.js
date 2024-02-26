@@ -6,6 +6,8 @@ const path = require('path');
 const app = express();
 
 const port = process.env.BACK_PORT;
+
+// Option d'exécution (npm = dev; docker = prod)
 let hostname
 if (process.env.REACT_DOCKER_ENV === 'true') {
     hostname = process.env.DOCKER_HOST;
@@ -19,13 +21,17 @@ app.use(express.static(path.join(__dirname, 'public', 'build')));
 
 app.use(express.json());
 
-// Message
+// Message d'accueil de l'API
 app.get('/api', async (req, res) => {
     res.status(200).json({
         name   : 'horiblezon-api', 
         version: '1.0', 
         status : 200, 
-        message: 'Bienvenue sur l\'API Horiblezon :) !!!'
+        message: 'Bienvenue sur l\'API Horiblezon :) !!!',
+        link: {
+            liste: "/api/get-ephemeris/",
+            ephemeris: "/api/get-ephemeris/399",
+        },
     });
 });
 

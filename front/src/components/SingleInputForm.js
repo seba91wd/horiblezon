@@ -2,16 +2,19 @@
 // SingleInputForm.js
 //
 // Props du composant:
-// type          = choisir (text || select).
-// label         = texte du bouton.
-// categoryName  = représente le type de données reçu par le champ du formulaire.
-// categoryValue = valeur affichée dans le champ.
-// options       = contient les options de la balise <select>
+// type             = choisir (text || select).
+// label            = texte du bouton.
+// categoryName     = représente le type de données reçu par le champ du formulaire.
+// categoryValue    = valeur affichée dans le champ.
+// placeholder      = Contenu affiché si la balise est vide
+// options          = contient les options de la balise <select>
+// dataProps        = données du formulaire
+// setFormattedData = permet la mise a jour des données du formulaire
 // 
 // Sous composant utilisés:
 // InfoSticker
 //
-// Note: 1 - Dans le cas ` SingleInputForm type="select" `, le props "categoryValue" affiche l'option choisie.
+// Note: 1 - Dans le cas ` SingleInputForm type="select" `, le props "categoryValue" affichera par défaut l'option choisie.
 //
 // exemple utilisation:
 /* 
@@ -59,8 +62,6 @@ const SingleInputForm = (props) => {
             }
         }
     
-        // Si nous sommes ici, cela signifie que la correspondance n'a pas été trouvée à ce niveau
-        // Vous pouvez utiliser la variable parentKey pour remonter correctement le chemin
         if (parentKey && data[parentKey]) {
             // Remontez d'un niveau si la propriété parente existe
             recursiveUpdate(data[parentKey], parameter, childParameter, value, parentKey);

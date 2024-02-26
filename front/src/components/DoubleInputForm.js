@@ -5,6 +5,8 @@
 // label1, label2                = texte du bouton.
 // categoryName1, categoryName2  = représente le type de données reçu par le champ du formulaire.
 // value1, value2                = valeur affichée dans les champs.
+// dataProps                     = donnée du formulaire
+// setFormattedData              = permet la mise a jour des données du formulaire
 //
 // Sous composant utilisés:
 // InfoSticker
