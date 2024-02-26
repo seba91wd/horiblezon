@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  # Service NodeJS (API Rest)
+  nodejs:
+    container_name: API-Rest
+    build:
+      context: ./api
+      dockerfile: Dockerfile.nodejs
+    volumes:
+      - type: volume
+        source: HORIBLEZON_DATA_API
+        target: /app/api
+    ports:
+      - "3100:3100"
+    command: npm run start
+
+volumes:
+  HORIBLEZON_DATA_API:
+    name: HORIBLEZON_DATA_API

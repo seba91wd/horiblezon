@@ -1,0 +1,50 @@
+/* ============================================================================= */
+/* --------------------------------- RESET CSS --------------------------------- */
+
+ul {
+    margin: 0!important;
+    padding: 0!important;
+    list-style-type: none;
+}
+
+
+/* ============================================================================= */
+/* --------------------------------- COULEURS ---------------------------------- */
+
+:root {
+    --backgroundColor1: #212121;
+    --backgroundColor2: #282828;
+    --backgroundColor3: #323232;
+    --backgroundColor4: #404040;
+}
+
+* {
+    color: #ffffff!important;
+}
+
+/* ============================================================================= */
+/* -------------------------- STYLES DE L'APPLICATION -------------------------- */
+
+.App {
+    min-height: 100vh;
+    background-color: var(--backgroundColor1);
+}
+
+/* Bare de scroll */
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: transparent;
+}
+  
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 2px solid var(--backgroundColor4);
+    border-radius: 2px;
+}
+
+
+

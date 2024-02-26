@@ -1,0 +1,99 @@
+{
+  "signature": {
+    "version": "1.2",
+    "source": "NASA/JPL Horizons API"
+  },
+  "result": "*******************************************************************************\n Revised: Aug 19, 2015            Hydra / (Pluto)                           903\n    https://www.sciencedirect.com/science/article/pii/S0019103514001419#t0050\n\n Pre-computed solution PLU043/DE430 reversion; fit to data through 2013.\n\n SATELLITE GENERAL PHYSICAL PROPERTIES (PLU043, IAU2009, and derived values):\n  GM (km^3/s^2)         = 0.0032+-.0028   Density (g cm^-3)    = < 0.88\n  Radius (km)           = 29 - 86         Geometric alebdo     =\n  Mass (10^21 kg )      =                 Hill Sphere rad., km =    \n  Surface grav. (cm/s^2)=                 Escape velocity, km/s=      \n\n SATELLITE 200 YEAR MEAN ORBITAL DATA (barycentric):\n  Semi-major axis, a (km) =  64721        Orbital period, days   = 38.2021\n  Eccentricity, e         =  0.00554\n*******************************************************************************\n\n\n*******************************************************************************\nEphemeris / API_USER Wed Jan 31 05:49:31 2024 Pasadena, USA      / Horizons\n*******************************************************************************\nTarget body name: Hydra (903)                     {source: plu043_merged}\nCenter body name: Pluto Barycenter (9)            {source: plu043_merged}\nCenter-site name: BODY CENTER\n*******************************************************************************\nStart time      : A.D. 2000-Jan-01 00:00:00.0000 TDB\nStop  time      : A.D. 2000-Jan-02 00:00:00.0000 TDB\nStep-size       : 1 calendar months\n*******************************************************************************\nCenter geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}\nCenter cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}\nCenter radii    : (undefined)\nKeplerian GM    : 9.7549154279085849E+02 km^3/s^2\nOutput units    : KM-S, deg, Julian Day Number (Tp)\nCalendar mode   : Mixed Julian/Gregorian\nOutput type     : GEOMETRIC osculating elements\nOutput format   : 10\nReference frame : Ecliptic of J2000.0\n*******************************************************************************\nJDTDB\n   EC    QR   IN\n   OM    W    Tp\n   N     MA   TA\n   A     AD   PR\n*******************************************************************************\n$$SOE\n2451544.500000000 = A.D. 2000-Jan-01 00:00:00.0000 TDB \n EC= 1.377589700491528E-02 QR= 6.433244430222769E+04 IN= 1.126385140681111E+02\n OM= 2.276275305862755E+02 W = 2.709869889831277E+02 Tp=  2451547.199750858825\n N = 1.074119809583456E-04 MA= 3.349452452102370E+02 TA= 3.342661614786920E+02\n A = 6.523106067561635E+04 AD= 6.612967704900503E+04 PR= 3.351581423115248E+06\n$$EOE\n*******************************************************************************\n \nTIME\n\n  Barycentric Dynamical Time (\"TDB\" or T_eph) output was requested. This\ncontinuous coordinate time is equivalent to the relativistic proper time\nof a clock at rest in a reference frame co-moving with the solar system\nbarycenter but outside the system's gravity well. It is the independent\nvariable in the solar system relativistic equations of motion.\n\n  TDB runs at a uniform rate of one SI second per second and is independent\nof irregularities in Earth's rotation.\n \nCALENDAR SYSTEM\n\n  Mixed calendar mode was active such that calendar dates after AD 1582-Oct-15\n(if any) are in the modern Gregorian system. Dates prior to 1582-Oct-5 (if any)\nare in the Julian calendar system, which is automatically extended for dates\nprior to its adoption on 45-Jan-1 BC.  The Julian calendar is useful for\nmatching historical dates. The Gregorian calendar more accurately corresponds\nto the Earth's orbital motion and seasons. A \"Gregorian-only\" calendar mode is\navailable if such physical events are the primary interest.\n\nREFERENCE FRAME AND COORDINATES\n\n  Ecliptic at the standard reference epoch\n\n    Reference epoch: J2000.0\n    X-Y plane: adopted Earth orbital plane at the reference epoch\n               Note: IAU76 obliquity of 84381.448 arcseconds wrt ICRF X-Y plane\n    X-axis   : ICRF\n    Z-axis   : perpendicular to the X-Y plane in the directional (+ or -) sense\n               of Earth's north pole at the reference epoch.\n\n  Symbol meaning:\n\n    JDTDB    Julian Day Number, Barycentric Dynamical Time\n      EC     Eccentricity, e\n      QR     Periapsis distance, q (km)\n      IN     Inclination w.r.t X-Y plane, i (degrees)\n      OM     Longitude of Ascending Node, OMEGA, (degrees)\n      W      Argument of Perifocus, w (degrees)\n      Tp     Time of periapsis (Julian Day Number)\n      N      Mean motion, n (degrees/sec)\n      MA     Mean anomaly, M (degrees)\n      TA     True anomaly, nu (degrees)\n      A      Semi-major axis, a (km)\n      AD     Apoapsis distance (km)\n      PR     Sidereal orbit period (sec)\n\nABERRATIONS AND CORRECTIONS\n\n Geometric osculating elements have NO corrections or aberrations applied.\n\nComputations by ...\n\n    Solar System Dynamics Group, Horizons On-Line Ephemeris System\n    4800 Oak Grove Drive, Jet Propulsion Laboratory\n    Pasadena, CA  91109   USA\n\n    General site: https://ssd.jpl.nasa.gov/\n    Mailing list: https://ssd.jpl.nasa.gov/email_list.html\n    System news : https://ssd.jpl.nasa.gov/horizons/news.html\n    User Guide  : https://ssd.jpl.nasa.gov/horizons/manual.html\n    Connect     : browser        https://ssd.jpl.nasa.gov/horizons/app.html#/x\n                  API            https://ssd-api.jpl.nasa.gov/doc/horizons.html\n                  command-line   telnet ssd.jpl.nasa.gov 6775\n                  e-mail/batch   https://ssd.jpl.nasa.gov/ftp/ssd/hrzn_batch.txt\n                  scripts        https://ssd.jpl.nasa.gov/ftp/ssd/SCRIPTS\n    Author      : Jon.D.Giorgini@jpl.nasa.gov\n*******************************************************************************\n",
+  "reformattedData": {
+    "astronomicalData": {
+      "jdtdb": {
+        "value": 2451544.5
+      },
+      "date": {
+        "value": "2000-jan-01 00:00:00.0000"
+      },
+      "eccentricity": {
+        "value": 1.377589700491528,
+        "exponent": -2
+      },
+      "periapsis": {
+        "value": 6.433244430222769,
+        "exponent": 4,
+        "unit": "km"
+      },
+      "inclination": {
+        "value": 1.126385140681111,
+        "exponent": 2,
+        "unit": "degrees"
+      },
+      "longitudeNode": {
+        "value": 2.276275305862755,
+        "exponent": 2,
+        "unit": "degrees"
+      },
+      "argumentPerifocus": {
+        "value": 2.709869889831277,
+        "exponent": 2,
+        "unit": "degrees"
+      },
+      "timePeriapsis": {
+        "value": 2451547.199750859,
+        "unit": "Julian Day Number"
+      },
+      "meanMotion": {
+        "value": 1.074119809583456,
+        "exponent": -4,
+        "unit": "degrees/sec"
+      },
+      "meanAnomaly": {
+        "value": 3.34945245210237,
+        "exponent": 2,
+        "unit": "degrees"
+      },
+      "trueAnomaly": {
+        "value": 3.34266161478692,
+        "exponent": 2,
+        "unit": "degrees"
+      },
+      "semiMajorAxis": {
+        "value": 6.523106067561635,
+        "exponent": 4,
+        "unit": "km"
+      },
+      "apoapsis": {
+        "value": 6.612967704900503,
+        "exponent": 4,
+        "unit": "km"
+      },
+      "siderealOrbitPeriod": {
+        "value": 3.351581423115248,
+        "exponent": 6,
+        "unit": "sec"
+      }
+    },
+    "physicalData": {
+      "meanRadius": {
+        "value": "57.5"
+      },
+      "density": {
+        "value": "0.88"
+      }
+    },
+    "type": {
+      "value": "moon"
+    },
+    "revised": {
+      "value": "aug 19 2015"
+    },
+    "name": {
+      "value": "hydra"
+    },
+    "id": {
+      "value": "903"
+    },
+    "coordinateCenter": {
+      "value": "pluto barycenter",
+      "id": "9"
+    }
+  }
+}
