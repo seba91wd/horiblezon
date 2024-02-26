@@ -14,16 +14,10 @@ else {
     hostname = process.env.HOST;
 }
 
-// Ajoutez le contenu statique depuis le dossier "build"
-// app.use(express.static(path.join(__dirname, '../front/build')));
+// Contenu statique
 app.use(express.static(path.join(__dirname, 'public', 'build')));
 
 app.use(express.json());
-
-// Redirection vers l'accueil
-app.get('/', (req, res) => {
-    res.redirect('/horiblezon');
-});
 
 // Message
 app.get('/api', async (req, res) => {
@@ -36,7 +30,6 @@ app.get('/api', async (req, res) => {
 });
 
 // Routes
-require('./src/routes/horiblezon')(app); // contenu statique
 require('./src/routes/getEphemeris')(app);
 require('./src/routes/postExtractData')(app);
 require('./src/routes/postAddBody')(app);

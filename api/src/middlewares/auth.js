@@ -12,8 +12,8 @@
 */
 // ========================================================================================================== //
 
+require('dotenv').config()
 const jwt = require('jsonwebtoken');
-const privateKey = require('../privateKey');
 
 module.exports = (req, res, next) => {
     // Récupérer le jeton depuis les cookies, les en-têtes ou les paramètres de la requête
@@ -28,7 +28,7 @@ module.exports = (req, res, next) => {
     }
 
     // Vérifier le jeton
-    jwt.verify(token, privateKey, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
         if (err) {
             return res.status(401).json({ message: "Identification invalide. Veuillez vous reconnecter." });
         }

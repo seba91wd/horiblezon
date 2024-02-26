@@ -1,5 +1,5 @@
+api/.env
 api/node_modules
 api/package-lock.json
-api/src/privateKey.js
 front/node_modules
 front/package-lock.json
